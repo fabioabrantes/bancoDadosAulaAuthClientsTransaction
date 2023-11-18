@@ -18,10 +18,11 @@ export class RegisterTransactionCaseUser{
       data: {
        amount,
        type,
-        client: {
-          connect: { id },
-        },
+       clientId:id
       },
+      include:{
+        client:true,
+      }
     });
   
    

@@ -12,6 +12,9 @@ export class FindAllTransactionByClientCaseUser{
       where:{
         clientId:id
       },
+      include:{
+        client:true,
+      }
     });
 
     return transactions;

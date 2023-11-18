@@ -1,7 +1,7 @@
 import {Router} from 'express';
 
 //middleware
-import {verifyIfExistsAccountCPF} from '../middlewares/verifyIfExistsAccountCPF';
+import {verifyAuthorization} from '../middlewares/verifyAuthorization';
 
 //controllers
 import {RegisterClientController} from '../controllers/RegisterClientController';
@@ -19,7 +19,7 @@ const registerClientController = new RegisterClientController();
 routesClients.post('/clientsAccount',registerClientController.handle);
 
 const deleteClientController = new DeleteClientController();
-routesClients.delete('/clientsAccount',verifyIfExistsAccountCPF, deleteClientController.handle);
+routesClients.delete('/clientsAccount',verifyAuthorization, deleteClientController.handle);
 
 const findAllClientsController = new FindAllClientsController();
 routesClients.get('/account/alls', findAllClientsController.handle);

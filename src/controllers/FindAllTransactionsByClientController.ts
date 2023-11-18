@@ -5,7 +5,7 @@ export class FindAllTransactionsByClientController {
 
 
   async handle(req:Request,res:Response):Promise<Response>{
-    const {id} = req.client;
+    const id = req.id_client;
 
     const findAllTransactionByClientCaseUser = new FindAllTransactionByClientCaseUser();
     const transactions = await findAllTransactionByClientCaseUser.execute({id});

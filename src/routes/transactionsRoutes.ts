@@ -1,7 +1,7 @@
 import {Router} from 'express';
 
 //middleware
-import {verifyIfExistsAccountCPF} from '../middlewares/verifyIfExistsAccountCPF';
+import {verifyAuthorization} from '../middlewares/verifyAuthorization';
 
 import { RegisterTransactionController } from './../controllers/RegisterTransactionController';
 import { FindAllTransactionsByClientController } from '../controllers/FindAllTransactionsByClientController';
@@ -12,12 +12,12 @@ import { BalanceByClientController } from '../controllers/BalanceByClientControl
 
 
 const registerTransactionController = new RegisterTransactionController();
-routesTransactions.post('/transactions',verifyIfExistsAccountCPF,registerTransactionController.handle);
+routesTransactions.post('/transactions',verifyAuthorization,registerTransactionController.handle);
 
 const findAllTransactionsByClientController = new FindAllTransactionsByClientController();
-routesTransactions.get('/transactions',verifyIfExistsAccountCPF, findAllTransactionsByClientController.handle);
+routesTransactions.get('/transactions',verifyAuthorization, findAllTransactionsByClientController.handle);
 
 const balanceByClientController = new BalanceByClientController();
-routesTransactions.get('/balance',verifyIfExistsAccountCPF,balanceByClientController.handle);
+routesTransactions.get('/balance',verifyAuthorization,balanceByClientController.handle);
 
 export {routesTransactions}

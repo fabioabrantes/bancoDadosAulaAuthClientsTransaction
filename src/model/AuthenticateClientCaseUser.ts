@@ -31,7 +31,7 @@ export class AuthenticateClientCaseUser{
       const {name} = clientExist;
       const token = sign(
         {name},
-        "421761d1ed7d7ff187d67781fdfd0d42", 
+        process.env.KEY_SECRET as string, 
         {expiresIn:'1d',subject:clientExist.id}
         );
         
