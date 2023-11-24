@@ -16,12 +16,12 @@ const authenticateClientController = new AuthenticateClientController();
 routesClients.post('/client/session',authenticateClientController.handle);
 
 const registerClientController = new RegisterClientController();
-routesClients.post('/clientsAccount',registerClientController.handle);
+routesClients.post('/client/register',registerClientController.handle);
 
 const deleteClientController = new DeleteClientController();
-routesClients.delete('/clientsAccount',verifyAuthorization, deleteClientController.handle);
+routesClients.delete('/client/remove',verifyAuthorization, deleteClientController.handle);
 
 const findAllClientsController = new FindAllClientsController();
-routesClients.get('/account/alls', findAllClientsController.handle);
+routesClients.get('/client/accountAlls', findAllClientsController.handle);
 
 export {routesClients}
